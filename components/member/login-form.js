@@ -174,7 +174,7 @@ export default function LoginForm() {
               type={showPassword ? 'text' : 'password'}
               name="password"
               value={user.password}
-              className={`form-control w-100 ${styles['form-control']} ${styles['invalid']} `}
+              className={`form-control w-100 ${styles['form-control']}`}
               placeholder="密碼"
               onChange={handleFieldChange}
             />
@@ -229,7 +229,15 @@ export default function LoginForm() {
         >
           登入
         </button>
-
+        <button
+          className="mt-2"
+          onClick={() => {
+            // 測試帳號 herry/11111
+            setUser({ username: 'herry', password: '11111' })
+          }}
+        >
+          一鍵輸入
+        </button>
         <div className="row mt-2">
           <p className={`${styles['notice']}`}>
             還不是會員？

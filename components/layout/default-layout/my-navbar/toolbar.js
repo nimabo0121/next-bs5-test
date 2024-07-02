@@ -6,10 +6,10 @@ import { initUserData, useAuth } from '@/hooks/use-auth'
 // 處理登出
 import { logout, getUserById } from '@/services/user'
 import toast, { Toaster } from 'react-hot-toast'
+import MemberTop from '@/components/member/member-top'
 
 export default function Toolbar({ handleShow }) {
   const { auth } = useAuth()
-
   // 登入後設定全域的會員資料用
   const { setAuth } = useAuth()
 
@@ -49,8 +49,8 @@ export default function Toolbar({ handleShow }) {
         </Link>
       </li>
       <li
-        // className="nav-item dropdown"
-        className={`nav-item dropdown ${styles['dropdown']}`}
+      // className="nav-item dropdown"
+      // className={`nav-item dropdown ${styles['dropdown']}`}
       >
         <Link
           className="nav-link dropdown-toggle btn btn-outline-light"
@@ -68,13 +68,7 @@ export default function Toolbar({ handleShow }) {
         >
           <li>
             <p className="text-center">
-              <Image
-                src="/avatar.svg"
-                className="rounded-circle d-block mx-auto"
-                alt="..."
-                width={80}
-                height={80}
-              />
+              <MemberTop />
             </p>
             <p className="text-center">
               會員姓名: {auth.userData.name}
@@ -87,7 +81,7 @@ export default function Toolbar({ handleShow }) {
             </p>
           </li>
           <li>
-            <Link className="dropdown-item text-center" href="/admin">
+            <Link className="dropdown-item text-center" href="/member/profile">
               會員管理區
             </Link>
           </li>
