@@ -119,12 +119,7 @@ export default function Profile() {
   return (
     <>
       <h1>會員資料修改(一般)</h1>
-      <hr />
       <p>
-        規則: username與email不能修改(這與註冊機制或網站會員的安全機制的有關)
-      </p>
-      <p>
-        注意: 密碼不在這裡修改，因機制不一樣，在
         <Link href="/test/user/profile-password">會員資料修改(密碼)</Link>
       </p>
       <hr />

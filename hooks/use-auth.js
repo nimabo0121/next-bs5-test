@@ -5,6 +5,7 @@ import { checkAuth, getFavs } from '@/services/user'
 
 const AuthContext = createContext(null)
 
+
 // 註: 如果使用google登入會多幾個欄位(iat, exp是由jwt token來的)
 // 上面資料由express來(除了password之外)
 //   {

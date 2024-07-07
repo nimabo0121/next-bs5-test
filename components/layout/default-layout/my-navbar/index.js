@@ -62,7 +62,7 @@ export default function MyNavbar() {
               </div>
               <div className="offcanvas-body">
                 <Menubar currentRoute={currentRoute} />
-                <SearchForm />
+                {/* <SearchForm /> */}
                 <Toolbar currentRoute={currentRoute} handleShow={handleShow} />
               </div>
             </div>

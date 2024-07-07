@@ -3,10 +3,10 @@ import styles from './member.module.css'
 import Link from 'next/link'
 
 import { initUserData, useAuth } from '@/hooks/use-auth'
-import { checkAuth, login, logout, getUserById } from '@/services/user'
+import { login, getUserById } from '@/services/user'
 import { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
-
+import { useRouter } from 'next/router'
 // 第三方登入
 import LineLogo from '@/components/icons/line-logo'
 import GoogleLogo from '@/components/icons/google-logo'
@@ -24,6 +24,8 @@ export default function LoginForm() {
 
   // 登入後設定全域的會員資料用
   const { setAuth } = useAuth()
+
+  const router = useRouter()
 
   // 輸入帳號 密碼用
   const handleFieldChange = (e) => {
@@ -111,6 +113,7 @@ export default function LoginForm() {
         })
 
         toast.success('已成功登入')
+        router.push('/')
       } else {
         toast.error('登入後無法得到會員資料')
         // 這裡可以讓會員登出，因為這也算登入失敗，有可能會造成資料不統一
@@ -120,37 +123,6 @@ export default function LoginForm() {
     }
   }
 
-  // 處理登出
-  const handleLogout = async () => {
-    const res = await logout()
-
-    console.log(res.data)
-
-    // 成功登出個回復初始會員狀態
-    if (res.data.status === 'success') {
-      toast.success('已成功登出')
-
-      setAuth({
-        isAuth: false,
-        userData: initUserData,
-      })
-    } else {
-      toast.error(`登出失敗`)
-    }
-  }
-
-  // 處理檢查登入狀態
-  const handleCheckAuth = async () => {
-    const res = await checkAuth()
-
-    console.log(res.data)
-
-    if (res.data.status === 'success') {
-      toast.success('已登入會員')
-    } else {
-      toast.error(`非會員身份`)
-    }
-  }
   return (
     <main className={`form-member w-100 m-auto text-center`}>
       <h2 className="text-center mb-5">會員登入</h2>

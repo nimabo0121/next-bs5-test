@@ -20,9 +20,9 @@ export default function MemberTop() {
       if (res.data.status === 'success') {
         const { avatar } = res.data.data.user
         setUserProfile({ avatar })
-        toast.success('會員頭像載入成功')
+        // toast.success('會員頭像載入成功')
       } else {
-        toast.error('無法獲取會員頭像')
+        // toast.error('無法獲取會員頭像')
       }
     } catch (error) {
       console.error('Error fetching user avatar:', error)
