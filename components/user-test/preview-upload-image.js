@@ -48,7 +48,7 @@ export default function PreviewUploadImage({
 
   return (
     <div className="image-upload">
-      <label for="file-input">
+      <label htmlFor="file-input">
         <img src={showImg()} alt="" width="200" height="200" />
       </label>
       <input

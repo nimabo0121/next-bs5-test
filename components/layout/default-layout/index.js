@@ -17,9 +17,11 @@ export default function DefaultLayout({ title = 'Next-BS5', children }) {
       <MyNavbarBS5 />
       <main className="flex-shrink-0 mt-3">
         <div className="container">
-          <NextBreadCrumb isHomeIcon isChevron bgClass="" />
+          {/*返回路徑 navbar */}
+          {/* <NextBreadCrumb isHomeIcon isChevron bgClass="" /> */}
           {children}
         </div>
+
         {/* 全域的載入動畫指示器 */}
         {loader()}
       </main>
